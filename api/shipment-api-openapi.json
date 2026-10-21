@@ -1,0 +1,281 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sendcloud mock shipments API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ShippingMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the shipping method."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the shipping method."
+          }
+        }
+      },
+      "CreatedShipment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The shipment's ID, in UUID v4 format."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the recipient."
+          },
+          "city": {
+            "type": "string",
+            "description": "The city of the recipient."
+          },
+          "country": {
+            "type": "string",
+            "description": "The country of the recipient, in ISO 3166-1 alpha-2 format",
+            "enum": [
+              "DE",
+              "ES",
+              "FR",
+              "GB",
+              "IT",
+              "NL",
+              "PT",
+              "US"
+            ]
+          },
+          "shipping_method_id": {
+            "type": "integer",
+            "description": "The ID of the shipping method. Corresponds to the IDs of the shipping methods in the `/shipping-methods` endpoint."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The datetime when the shipment was created, in ISO 8601 format."
+          }
+        }
+      },
+      "NewShipment": {
+        "type": "object",
+        "required": [
+          "name",
+          "city",
+          "country",
+          "shipping_preference",
+          "insured"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the recipient."
+          },
+          "telephone_number": {
+            "type": "string",
+            "description": "The telephone number of the recipient."
+          },
+          "city": {
+            "type": "string",
+            "description": "The city of the recipient."
+          },
+          "country": {
+            "type": "string",
+            "description": "The country of the recipient. Must be in ISO 3166-1 alpha-2 format",
+            "enum": [
+              "DE",
+              "ES",
+              "FR",
+              "GB",
+              "IT",
+              "NL",
+              "PT",
+              "US"
+            ]
+          },
+          "tax_number": {
+            "type": "string",
+            "description": "The sender's tax number, to be used in customs documentation. Required if the `country` is `'GB'` or `'US'`."
+          },
+          "export_reason": {
+            "type": "string",
+            "description": "The reason for export, to be used in customs documentation. Required if the `country` is `'GB'` or `'US'`.",
+            "enum": [
+              "commercial_goods",
+              "documents",
+              "gift"
+            ]
+          },
+          "statements": {
+            "type": "string",
+            "description": "Any statements or declarations associated with the shipment, to be used in customs documentation. Not required, and should only be sent if the `country` is `'GB'` or `'US'`."
+          },
+          "shipping_preference": {
+            "type": "string",
+            "description": "The preferred type of shipping method that should be used.",
+            "enum": [
+              "cheap",
+              "fast",
+              "reliable"
+            ]
+          },
+          "insured": {
+            "type": "boolean",
+            "description": "`true` if the shipment should be insured, `false` if not."
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/shipments": {
+      "get": {
+        "summary": "Get a list of shipments",
+        "description": "Retrieve the latest 20 shipments. This endpoint has a built-in `2000ms` delay.",
+        "operationId": "getShipments",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CreatedShipment"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "310a3134-2bdf-4a42-a6af-9b844278d3ae",
+                    "name": "Jane Doe",
+                    "city": "Eindhoven",
+                    "country": "NL",
+                    "shipping_method_id": 3,
+                    "created_at": "2024-04-23T04:17:01.804Z"
+                  },
+                  {
+                    "id": "14f3ea0a-0293-4e31-9b8c-f8d9aaa88062",
+                    "name": "Sherlock Holmes",
+                    "city": "London",
+                    "country": "GB",
+                    "shipping_method_id": 1,
+                    "created_at": "2024-02-28T01:47:26.556Z"
+                  },
+                  {
+                    "id": "a5c70bb3-960d-440a-a81a-717c595ed96f",
+                    "name": "Jane Doe",
+                    "city": "Eindhoven",
+                    "country": "NL",
+                    "shipping_method_id": 2,
+                    "created_at": "2024-05-12T22:23:43.440Z"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new shipment",
+        "description": "This endpoint is configured to randomly return a `400` response, and has a built-in `2000ms` delay. (There is no validation of the request body.)",
+        "operationId": "createShipment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewShipment"
+              },
+              "examples": {
+                "Minimum required fields": {
+                  "value": {
+                    "name": "Jane Doe",
+                    "city": "Amsterdam",
+                    "country": "NL",
+                    "shipping_preference": "fast",
+                    "insured": false
+                  }
+                },
+                "All possible fields": {
+                  "value": {
+                    "name": "Sherlock Holmes",
+                    "telephone_number": "+447700 123 456",
+                    "city": "London",
+                    "country": "GB",
+                    "tax_number": "NL123456890",
+                    "export_reason": "gift",
+                    "statements": "Definitely not sent by Moriarty.",
+                    "shipping_preference": "reliable",
+                    "insured": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipping-methods": {
+      "get": {
+        "summary": "Get a list of shipping methods",
+        "description": "Has a built-in `1000ms` delay.",
+        "operationId": "getShippingMethods",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingMethod"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Fast shipping method"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Cheap shipping method"
+                  },
+                  {
+                    "id": 3,
+                    "name": "Reliable shipping method"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

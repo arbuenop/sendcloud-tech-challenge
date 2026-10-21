@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipments</title>
+
+  <link rel="stylesheet" href="shipments.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <span class="shipments-title">Shipments</span>
+
+    <Loading class="loading">Loading...</Loading>
+  </div>
+
+  <span class="jumpToTop" role="button" title="Jump to top">
+    &uarr;
+  </span>
+
+  <script type="module" src="shipments.js"></script>
+  <script type="module">window.init()</script>
+</body>
+
+</html>
