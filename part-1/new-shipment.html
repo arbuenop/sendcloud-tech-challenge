@@ -17,18 +17,18 @@
           <legend>Recipient</legend>
           <div>
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
+            <input id="name" name="name" type="text" autocomplete="name" />
           </div>
 
           <div>
             <label for="telephone_number">Phone number</label>
-            <input id="telephone_number" name="telephone_number" type="tel" />
+            <input id="telephone_number" name="telephone_number" type="tel" autocomplete="tel" />
             <small>Only used if there are issues with the shipment</small>
           </div>
 
           <div>
             <label for="country">Country</label>
-            <select id="country" name="country" required>
+            <select id="country" name="country" autocomplete="country">
               <!-- Options will be populated by JavaScript -->
               <option value="">Choose a country</option>
             </select>
@@ -36,7 +36,7 @@
 
           <div>
             <label for="city">City</label>
-            <input id="city" name="city" type="text" required />
+            <input id="city" name="city" type="text" autocomplete="address-level2" />
           </div>
         </fieldset>
 
@@ -76,8 +76,8 @@
         <button type="submit">Submit</button>
       </form>
 
-      <p id="form-success" hidden aria-live="polite"></p>
-      <p id="form-error" hidden aria-live="assertive"></p>
+      <p id="form-success" role="status" tabindex="-1" hidden aria-live="polite"></p>
+      <p id="form-error" role="alet" tabindex="-1" hidden aria-live="assertive"></p>
     </main>
 
     <script type="module" src="./scripts/index.ts"></script>
