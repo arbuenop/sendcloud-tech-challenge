@@ -1,22 +1,82 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles/main.css" />
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Sendcloud | New shipment</title>
   </head>
   <body>
-    
     <main>
-      <h1>Hello World</h1>
-      <p id="test">Loading…</p>
+      <h1>Create new shipment</h1>
+
+      <form id="shipment-form" novalidate>
+        <fieldset id="recipient">
+          <legend>Recipient</legend>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+
+          <div>
+            <label for="telephone_number">Phone number</label>
+            <input id="telephone_number" name="telephone_number" type="tel" />
+            <small>Only used if there are issues with the shipment</small>
+          </div>
+
+          <div>
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <!-- Options will be populated by JavaScript -->
+              <option value="">Choose a country</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" required />
+          </div>
+        </fieldset>
+
+        <fieldset id="customs-fields" hidden>
+          <legend>Customs information</legend>
+
+          <div>
+            <label for="tax_number">Tax number</label>
+            <input id="tax_number" name="tax_number" type="text" />
+          </div>
+
+          <div>
+            <label for="export_reason">Export reason</label>
+            <select id="export_reason" name="export_reason">
+              <!-- Options will be populated by JavaScript -->
+              <option value="">Choose an export reason</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="statements">Statements</label>
+            <textarea id="statements" name="statements"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset id="shipping-preference-fieldset">
+          <legend>Shipping preference</legend>
+          <!-- Options will be populated by JavaScript -->
+          <div>
+            <label for="insured">
+              <input id="insured" name="insured" type="checkbox" />
+              Insured shipment
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <p id="form-success" hidden aria-live="polite"></p>
+      <p id="form-error" hidden aria-live="assertive"></p>
     </main>
 
     <script type="module" src="./scripts/index.ts"></script>
-
   </body>
 </html>
