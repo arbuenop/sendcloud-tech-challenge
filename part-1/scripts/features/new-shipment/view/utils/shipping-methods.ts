@@ -68,7 +68,7 @@ export function renderShippingMethods(
 
   wrapper.replaceChildren(...radios);
   wrapper.removeAttribute('aria-busy');
-  removeShippingError(form); // Not Implemented
+  removeShippingError(form);
 }
 
 /**
@@ -80,29 +80,30 @@ export function setShippingMethodsLoading(form: HTMLFormElement): void {
   const wrapper = getShippingMethodsContainer(form);
   wrapper.setAttribute('aria-busy', 'true');
   wrapper.textContent = 'Loading shipping methods…';
-  removeShippingError(form); // Not Implemented
+  removeShippingError(form);
 }
 
-/**
- * This is a placeholder in case the shipping methods endpoint would eventually
- * send an error.
- *
- * Not implemented to save time but prepared if needed.
- *
- * @param form - The root form element
- */
 export function setShippingMethodsError(form: HTMLFormElement): void {
-  throw Error('Not implemented');
+  const wrapper = getShippingMethodsContainer(form);
+  wrapper.setAttribute('aria-busy', 'false');
+
+  let error = form.querySelector<HTMLParagraphElement>('#shipping-methods-error');
+  if (!error) {
+    error = document.createElement('p');
+    error.id = 'shipping-methods-error';
+    error.className = 'field-error';
+    error.setAttribute('role', 'alert');
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.dataset.retryShippingMethods = '';
+    retry.textContent = 'Retry loading shipping methods';
+    error.append(document.createTextNode('Shipping preferences could not be loaded. '), retry);
+    wrapper.after(error);
+  }
+  error.hidden = false;
 }
 
-/**
- * This is a placeholder in case the shipping methods endpoint would eventually
- * send an error.
- *
- * Not implemented to save time but prepared if needed.
- *
- * @param form - The root form element
- */
 export function removeShippingError(form: HTMLFormElement): void {
-  throw Error('Not implemented');
+  const error = form.querySelector<HTMLParagraphElement>('#shipping-methods-error');
+  if (error) error.hidden = true;
 }

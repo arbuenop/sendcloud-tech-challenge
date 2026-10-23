@@ -14,3 +14,7 @@ export type API = {
   get: (path: string) => Promise<Response>;
   post: (path: string, body: unknown) => Promise<Response>;
 };
+
+export type ValidationResult<ValidationSchema> =
+  | { ok: true; data: ValidationSchema }
+  | { ok: false; errors: FieldErrors<Extract<keyof ValidationSchema, string>> };
