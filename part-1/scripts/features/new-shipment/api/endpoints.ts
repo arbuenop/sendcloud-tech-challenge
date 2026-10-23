@@ -1,5 +1,6 @@
 import { api } from '../../../api/client';
 import type { ShippingMethod } from '../../../shared/types';
+import type { NewShipment } from '../schema/schema';
 
 /**
  * Fetches the available shipping methods from the API.
@@ -40,9 +41,7 @@ export async function getShippingMethods(): Promise<ShippingMethod[]> {
  *
  * @param shipment - Form values necessary for a shipment. THEY MUST BE VALIDATED
  */
-export function postShipment(
-  shipment: object, //!TODO: To be replaced with the infered type of the shipment form values once the schema is implemented
-): Promise<Response> {
+export function postShipment(shipment: NewShipment): Promise<Response> {
   if (shipment === null || typeof shipment !== 'object') {
     throw new Error('The shipment data collected from the form is not a valid object');
   }

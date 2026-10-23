@@ -1,3 +1,10 @@
+export type FieldErrors<FieldName extends string> = Partial<Record<FieldName, string[]>>;
+
+export type SelectOption = {
+  label: string;
+  value: string;
+};
+
 export type ShippingMethod = {
   id: number;
   name: string;
