@@ -42,16 +42,7 @@
           "country": {
             "type": "string",
             "description": "The country of the recipient, in ISO 3166-1 alpha-2 format",
-            "enum": [
-              "DE",
-              "ES",
-              "FR",
-              "GB",
-              "IT",
-              "NL",
-              "PT",
-              "US"
-            ]
+            "enum": ["DE", "ES", "FR", "GB", "IT", "NL", "PT", "US"]
           },
           "shipping_method_id": {
             "type": "integer",
@@ -65,13 +56,7 @@
       },
       "NewShipment": {
         "type": "object",
-        "required": [
-          "name",
-          "city",
-          "country",
-          "shipping_preference",
-          "insured"
-        ],
+        "required": ["name", "city", "country", "shipping_preference", "insured"],
         "properties": {
           "name": {
             "type": "string",
@@ -88,16 +73,7 @@
           "country": {
             "type": "string",
             "description": "The country of the recipient. Must be in ISO 3166-1 alpha-2 format",
-            "enum": [
-              "DE",
-              "ES",
-              "FR",
-              "GB",
-              "IT",
-              "NL",
-              "PT",
-              "US"
-            ]
+            "enum": ["DE", "ES", "FR", "GB", "IT", "NL", "PT", "US"]
           },
           "tax_number": {
             "type": "string",
@@ -106,11 +82,7 @@
           "export_reason": {
             "type": "string",
             "description": "The reason for export, to be used in customs documentation. Required if the `country` is `'GB'` or `'US'`.",
-            "enum": [
-              "commercial_goods",
-              "documents",
-              "gift"
-            ]
+            "enum": ["commercial_goods", "documents", "gift"]
           },
           "statements": {
             "type": "string",
@@ -119,11 +91,7 @@
           "shipping_preference": {
             "type": "string",
             "description": "The preferred type of shipping method that should be used.",
-            "enum": [
-              "cheap",
-              "fast",
-              "reliable"
-            ]
+            "enum": ["cheap", "fast", "reliable"]
           },
           "insured": {
             "type": "boolean",
