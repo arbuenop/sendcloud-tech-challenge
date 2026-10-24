@@ -1,0 +1,33 @@
+.checkbox {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.checkboxlabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox > input {
+  margin: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 2px;
+  border: 1px solid var(--sc-color-primary);
+  accent-color: var(--sc-color-primary);
+}
+
+.field__checkbox:hover > input {
+  cursor: pointer;
+  border-color: var(--sc-color-border-hover);
+}
+
+.checkboxlabel > .field__hint {
+  margin: 0;
+}
+
+.checkboxlabel > .field__label {
+  margin: 0.15rem 0 0.25rem 0;
+  cursor: pointer;
+}

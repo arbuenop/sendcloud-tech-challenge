@@ -6,78 +6,127 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sendcloud | New shipment</title>
+    <title>Create new shipment - Sendcloud</title>
   </head>
   <body>
     <main>
-      <h1>Create new shipment</h1>
+      <h1 class="heading heading--1">Create new shipment</h1>
 
-      <form id="shipment-form" novalidate>
-        <fieldset id="recipient">
-          <legend>Recipient</legend>
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" />
+      <p
+        id="form-success"
+        class="alert alert--success"
+        role="status"
+        tabindex="-1"
+        hidden
+        aria-live="polite"
+      ></p>
+      <p
+        id="form-error"
+        class="alert alert--error"
+        role="alert"
+        tabindex="-1"
+        hidden
+        aria-live="assertive"
+      ></p>
+      <form class="form" id="shipment-form" novalidate>
+        <fieldset class="fieldset" id="recipient">
+          <legend class="fieldset__legend">Recipient</legend>
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="field__textinput"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="telephone_number">Phone number</label>
+              <input
+                id="telephone_number"
+                name="telephone_number"
+                class="field__textinput"
+                type="tel"
+                autocomplete="tel"
+              />
+              <small class="field__hint">Only used if there are issues with the shipment</small>
+            </div>
           </div>
 
-          <div>
-            <label for="telephone_number">Phone number</label>
-            <input id="telephone_number" name="telephone_number" type="tel" autocomplete="tel" />
-            <small>Only used if there are issues with the shipment</small>
-          </div>
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="country">Country</label>
+              <select class="field__select" id="country" name="country" autocomplete="country">
+                <!-- Options will be populated by JavaScript -->
+                <option value="">Loading list of countries...</option>
+              </select>
+            </div>
 
-          <div>
-            <label for="country">Country</label>
-            <select id="country" name="country" autocomplete="country">
-              <!-- Options will be populated by JavaScript -->
-              <option value="">Choose a country</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="city">City</label>
-            <input id="city" name="city" type="text" autocomplete="address-level2" />
+            <div class="field">
+              <label class="field__label" for="city">City</label>
+              <input
+                id="city"
+                name="city"
+                type="text"
+                class="field__textinput"
+                autocomplete="address-level2"
+              />
+            </div>
           </div>
         </fieldset>
 
-        <fieldset id="customs-fields" hidden>
-          <legend>Customs information</legend>
+        <fieldset class="fieldset" id="customs-fields" hidden>
+          <legend class="fieldset__legend">Customs information</legend>
 
-          <div>
-            <label for="tax_number">Tax number</label>
-            <input id="tax_number" name="tax_number" type="text" />
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="tax_number">Tax number</label>
+              <input id="tax_number" name="tax_number" class="field__textinput" type="text" />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="export_reason">Export reason</label>
+              <select class="field__select" id="export_reason" name="export_reason">
+                <!-- Options will be populated by JavaScript -->
+                <option value="">Loading results...</option>
+              </select>
+            </div>
           </div>
 
-          <div>
-            <label for="export_reason">Export reason</label>
-            <select id="export_reason" name="export_reason">
-              <!-- Options will be populated by JavaScript -->
-              <option value="">Choose an export reason</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="statements">Statements</label>
-            <textarea id="statements" name="statements"></textarea>
+          <div class="field">
+            <label class="field__label" for="statements">Statements and declarations</label>
+            <textarea id="statements" class="field__textarea" name="statements"></textarea>
           </div>
         </fieldset>
 
-        <fieldset id="shipping-preference-fieldset">
-          <legend>Shipping preference</legend>
+        <fieldset class="fieldset" id="shipping-preference-fieldset">
+          <legend class="fieldset__legend">Shipping preference</legend>
           <!-- Options will be populated by JavaScript -->
-          <div>
-            <label for="insured">
-              <input id="insured" name="insured" type="checkbox" />
-              Insured shipment
-            </label>
+          <div class="field__checkbox checkbox">
+            <input id="insured" name="insured" type="checkbox" />
+            <div class="field__checkboxlabel checkboxlabel">
+              <label class="field__label" for="insured">I'd like my shipment to be insured</label>
+              <small class="field__hint">
+                Only applies to shipments up to a maximum value of €4000.
+                <a
+                  class="link"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Terms and Conditions, opens in new tab"
+                  href="https://www.xcover.com/en/pds/sendcloud-shipment-protection-eu"
+                  >Terms and conditions</a
+                >
+                apply.
+              </small>
+            </div>
           </div>
         </fieldset>
 
-        <button type="submit">Submit</button>
+        <button class="button form__submit" type="submit">Create shipment</button>
       </form>
-
-      <p id="form-success" role="status" tabindex="-1" hidden aria-live="polite"></p>
-      <p id="form-error" role="alet" tabindex="-1" hidden aria-live="assertive"></p>
     </main>
 
     <script type="module" src="./scripts/index.ts"></script>

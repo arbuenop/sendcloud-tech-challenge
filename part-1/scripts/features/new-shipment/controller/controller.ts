@@ -85,9 +85,9 @@ export function createNewShipmentController(view: NewShipmentView, dependencies:
         );
       } else if (error instanceof Error) {
         // API responded with a non-2xx status (message contains the status)
-        view.showError(`The shipment could not be created (${error.message}). Please try again.`);
+        view.showError(`The shipment could not be created (${error.message}). Please, try again.`);
       } else {
-        view.showError('The shipment could not be created. Please try again.');
+        view.showError('The shipment could not be created. Please, try again.');
       }
     } finally {
       isSubmitting = false;

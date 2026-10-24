@@ -1,0 +1,87 @@
+.fieldset__radiocardwrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+}
+.fieldset__radiocardwrapper:empty {
+  display: none;
+}
+
+.fieldset__radiolabel {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* Side by side when there's room, stacked when there isn't */
+  padding: 1rem;
+  background-color: var(--sc-color-card-bg);
+  border: 1px solid var(--sc-color-primary);
+  border-radius: var(--sc-border-radius-l);
+  color: var(--sc-color-primary);
+  cursor: pointer;
+}
+
+.fieldset__radiolabel:hover {
+  border-color: var(--sc-color-border-hover);
+}
+
+/* Selected card */
+.fieldset__radiolabel:has(.fieldset__radioinput:checked) {
+  background-color: #f4f5fa; /* swap for a light-grey/blue token from your palette */
+  border-color: var(--sc-color-focus);
+}
+
+/* Keyboard focus: show the ring on the whole card instead of the tiny radio */
+.fieldset__radiolabel:has(.fieldset__radioinput:focus-visible) {
+  outline: 3px solid var(--sc-color-focus) !important;
+  outline-offset: 2px;
+}
+
+/* Custom radio circle */
+.fieldset__radioinput {
+  -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  background-color: var(--sc-color-card-bg);
+  border: 1px solid var(--sc-color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none !important; /* beats the global :focus-visible rule */
+}
+
+.fieldset__radiocardwrapper .skeleton {
+  min-height: 3.5rem;
+  /* min-height: 72px; */
+
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: var(--sc-border-radius-l);
+}
+
+/* Inner dot */
+.fieldset__radioinput::before {
+  content: '';
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background-color: var(--sc-color-primary);
+  transform: scale(0);
+  transition: transform 120ms ease-in-out;
+}
+
+.fieldset__radioinput:checked::before {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fieldset__radioinput::before {
+    transition: none;
+  }
+}

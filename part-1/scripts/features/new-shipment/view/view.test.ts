@@ -115,13 +115,18 @@ describe('new shipment view', () => {
   it('renders shipping, submitting, and status states', () => {
     const view = createNewShipmentView();
     view.setShippingLoading();
-    expect(element('[data-shipping-methods]').textContent).toContain('Loading');
-    expect(element('[data-shipping-methods]').getAttribute('aria-busy')).toBe('true');
+    const shippingMethods = element('[data-shipping-methods]');
+    expect(shippingMethods.querySelector('.bootup-loading-logo')).not.toBeNull();
+    expect(shippingMethods.textContent).toContain('Loading...');
+    expect(shippingMethods.querySelectorAll('.fieldset__radiocardskeleton')).toHaveLength(0);
+    expect(shippingMethods.getAttribute('aria-busy')).toBe('true');
 
     view.setShippingError();
     expect(element<HTMLParagraphElement>('#shipping-methods-error').hidden).toBe(false);
+    expect(shippingMethods.querySelectorAll('.fieldset__radiocardskeleton')).toHaveLength(0);
     view.showShippingMethods([{ id: 1, name: 'Fast shipping method' }]);
     expect(element<HTMLParagraphElement>('#shipping-methods-error').hidden).toBe(true);
+    expect(shippingMethods.querySelectorAll('.fieldset__radiocardskeleton')).toHaveLength(0);
     expect(element<HTMLInputElement>('#shipping-preference-1').required).toBe(true);
 
     const button = element<HTMLButtonElement>('button[type="submit"]');

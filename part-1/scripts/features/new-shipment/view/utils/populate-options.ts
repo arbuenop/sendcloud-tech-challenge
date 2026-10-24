@@ -16,8 +16,8 @@ export function populateSelectOptions(root: ParentNode): void {
   const selectedCountry = country.value;
   const selectedReason = exportReason.value;
   // Populate options
-  replaceOptions(country, 'Choose a country', COUNTRIES);
-  replaceOptions(exportReason, 'Choose an export reason', EXPORT_REASONS);
+  replaceOptions(country, 'Select a country', COUNTRIES);
+  replaceOptions(exportReason, 'Select an export reason', EXPORT_REASONS);
   // Preserve previously selected values if they are still valid - Might be useful if we want to re-use this to update the shipment
   if (COUNTRIES.some((option) => option.value === selectedCountry)) country.value = selectedCountry;
   if (EXPORT_REASONS.some((option) => option.value === selectedReason)) {

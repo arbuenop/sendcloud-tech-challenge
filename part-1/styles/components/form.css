@@ -1,0 +1,29 @@
+.form {
+  background: var(--sc-color-card-bg);
+}
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+.fieldset__legend {
+  font-family: var(--sc-font-heading);
+  font-size: var(--sc-heading-m);
+  color: var(--sc-color-primary);
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.fieldset__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__submit {
+  margin-top: 2.5rem;
+  float: right;
+  width: 100%;
+}

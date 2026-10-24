@@ -84,6 +84,7 @@ export function syncOptionalMarker(label: HTMLLabelElement | null, isRequired: b
   if (!isRequired && !marker) {
     const optionalMarker = document.createElement('span');
     optionalMarker.dataset.optionalMarker = '';
+    optionalMarker.classList = 'field__optionalmarker';
     optionalMarker.textContent = ' (Optional)';
     label.append(optionalMarker);
   } else if (isRequired && marker) {

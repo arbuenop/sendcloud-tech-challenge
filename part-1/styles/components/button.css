@@ -1,0 +1,33 @@
+.button {
+  background-color: var(--sc-color-primary);
+  color: var(--sc-color-primary-contrast);
+  border-radius: var(--sc-border-radius-l);
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: var(--sc-color-secondary);
+}
+
+.button--error {
+  background: var(--sc-color-danger-bg);
+  border: 1px solid var(--sc-color-danger-border);
+  color: var(--sc-color-danger);
+}
+
+.button--error:hover {
+  background: var(--sc-color-danger);
+  border: 1px solid var(--sc-color-danger-border);
+  color: white;
+}
+
+.button[aria-disabled='true'] {
+  background-color: var(--sc-color-light-grey);
+  color: var(--sc-color-dark-grey);
+  border: 1px solid var(--sc-color-dark-grey);
+  cursor: not-allowed;
+}

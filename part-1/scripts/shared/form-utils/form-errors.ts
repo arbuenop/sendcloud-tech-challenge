@@ -18,7 +18,7 @@ export function prepareFormErrors(form: HTMLFormElement, names: readonly string[
     if (!error) {
       error = document.createElement('p');
       error.id = errorId;
-      error.className = 'field-error';
+      error.className = 'field__error';
       error.hidden = true;
       (controls[0]?.closest('div') ?? controls[0]?.parentElement)?.append(error);
     }

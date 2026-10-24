@@ -1,0 +1,66 @@
+/* Some of these variables have been extracted from the official Sendcloud website */
+:root {
+  /* Typography */
+  --sc-font-sans: 'Source Sans Pro', Arial, sans-serif;
+  --sc-font-family-heading: var(--sc-font-sans);
+  --sc-font-family-body: var(--sc-font-sans);
+  --sc-heading-l: 1.625rem;
+  --sc-heading-m: 1.25rem;
+
+  /* Spacing scale (1 unit = 0.25rem) */
+  --sc-space-1: 0.25rem;
+  --sc-space-2: 0.5rem;
+  --sc-space-3: 0.75rem;
+  --sc-space-4: 1rem;
+  --sc-space-5: 1.25rem;
+  --sc-space-6: 1.5rem;
+  --sc-space-8: 2rem;
+
+  /* Radius */
+  --sc-border-radius-none: 0;
+  --sc-border-radius-s: 0.25rem;
+  --sc-border-radius-m: 0.5rem;
+  --sc-border-radius-l: 0.75rem;
+  --sc-border-radius-xl: 1rem;
+
+  /* Colors */
+  --sc-color-border-hover: #4aacff;
+  --sc-color-focus: #a5d5ff;
+
+  --sc-color-primary: #112857;
+  --sc-color-primary-contrast: #fff;
+  --sc-color-secondary: #4d5e81;
+  --sc-color-dark-grey: #686868;
+  --sc-color-mid-grey: #666;
+  --sc-color-light-grey: #e7e7e7;
+  --sc-color-bg: #f5f6fa;
+  --sc-color-card-bg: #fff;
+  --sc-color-main-bg: var(--sc-color-card-bg);
+  --sc-color-skeleton: #e2e5e7;
+
+  --sc-color-link: #0070d0;
+
+  --sc-color-info: #1d97ff;
+  --sc-color-info-bg: #e8f5ff;
+  --sc-color-info-border: #a5d5ff;
+  --sc-color-success: #03a678;
+  --sc-color-success-bg: #e6f6f2;
+  --sc-color-success-border: #68ceb1;
+  --sc-color-danger: #b50000;
+  --sc-color-danger-bg: #f8e6e6;
+  --sc-color-danger-border: #e19999;
+
+  /* Shared form-control look (inputs, selects, textareas, radio cards, radio circle) */
+  --sc-control-border: 1px solid var(--sc-color-primary);
+  --sc-control-radius: var(--sc-border-radius-l);
+  --sc-control-padding: var(--sc-space-2) var(--sc-space-3);
+
+  /* Icons.
+     Colors can't use CSS variables inside they url, so the hex values below
+     must be kept in sync by hand: %23112857 = --sc-color-primary, %23b50000 = --sc-color-danger.
+     (--sc-icon-alert is used as a mask, so it takes the element's currentColor instead.) */
+  --sc-icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23112857' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --sc-icon-error: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 512'%3E%3Cpath fill='%23b50000' d='M64 432c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40c0-22.1 17.9-40 40-40zM64 0c26.5 0 48 21.5 48 48 0 .6 0 1.1 0 1.7l-16 304c-.9 17-15 30.3-32 30.3S33 370.7 32 353.7L16 49.7c0-.6 0-1.1 0-1.7 0-26.5 21.5-48 48-48z'/%3E%3C/svg%3E");
+  --sc-icon-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0c14.7 0 28.2 8.1 35.2 21l216 400c6.7 12.4 6.4 27.4-.8 39.5S486.1 480 472 480L40 480c-14.1 0-27.2-7.4-34.4-19.5s-7.5-27.1-.8-39.5l216-400c7-12.9 20.5-21 35.2-21zm0 352a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.5 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z'/%3E%3C/svg%3E");
+  --sc-icon-success: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIHY3LjMuMSBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZS9mcmVlIENvcHlyaWdodCAyMDI2IEZvbnRpY29ucywgSW5jLi0tPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTMyMCA1NzZDMTc4LjYgNTc2IDY0IDQ2MS40IDY0IDMyMEM2NCAxNzguNiAxNzguNiA2NCAzMjAgNjRDNDYxLjQgNjQgNTc2IDE3OC42IDU3NiAzMjBDNTc2IDQ2MS40IDQ2MS40IDU3NiAzMjAgNTc2ek00MzggMjA5LjdDNDI3LjMgMjAxLjkgNDEyLjMgMjA0LjMgNDA0LjUgMjE1TDI4NS4xIDM3OS4yTDIzMyAzMjcuMUMyMjMuNiAzMTcuNyAyMDguNCAzMTcuNyAxOTkuMSAzMjcuMUMxODkuOCAzMzYuNSAxODkuNyAzNTEuNyAxOTkuMSAzNjFMMjcxLjEgNDMzQzI3Ni4xIDQzOCAyODIuOSA0NDAuNSAyODkuOSA0NDBDMjk2LjkgNDM5LjUgMzAzLjMgNDM1LjkgMzA3LjQgNDMwLjJMNDQzLjMgMjQzLjJDNDUxLjEgMjMyLjUgNDQ4LjcgMjE3LjUgNDM4IDIwOS43eiIvPjwvc3ZnPg==');
+}
