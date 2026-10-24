@@ -12,6 +12,8 @@
     "prepreview": "npm run build",
     "preview": "concurrently \"npm:mock-backend\" \"vite preview\"",
     "test": "vitest",
+    "test-ui": "npx playwright test --ui",
+    "generate-ui-tests": "concurrently -k \"npm start\" \"wait-on http://localhost:5173/part-1/new-shipment.html && playwright codegen http://localhost:5173/part-1/new-shipment.html\"",
     "typecheck": "tsc --noEmit",
     "mock-backend": "mockoon-cli start --faker-locale nl --data api/shipment-api-mockoon.json",
     "api-docs": "redocly preview --project-dir=./api --product=redoc",
@@ -25,7 +27,9 @@
     "valibot": "1.5.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@mockoon/cli": "9.9.0",
+    "@playwright/test": "^1.64.1",
     "@redocly/cli": "2.67.1",
     "axe-core": "4.14.0",
     "concurrently": "10.0.6",
@@ -34,7 +38,8 @@
     "prettier": "^3.9.10",
     "typescript": "7.0.2",
     "vite": "8.3.5",
-    "vitest": "4.1.12"
+    "vitest": "4.1.12",
+    "wait-on": "^9.5.1"
   },
   "overrides": {
     "@faker-js/faker": "10.6.0",
