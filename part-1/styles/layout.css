@@ -1,7 +1,6 @@
 main {
   flex: 1;
   width: 100%;
-  max-width: 40rem;
   padding: var(--sc-space-6) var(--sc-space-4);
   background: var(--sc-color-main-bg);
 }
@@ -33,24 +32,4 @@ main {
 
 .form__submit {
   width: 100%;
-}
-
-@media (min-width: 40rem) {
-  main {
-    padding: var(--sc-space-8);
-  }
-
-  /* Name + phone side by side */
-  .fieldset__row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--sc-space-4);
-    align-items: start;
-  }
-
-  .form__submit {
-    display: block;
-    width: auto;
-    margin-left: auto;
-  }
 }

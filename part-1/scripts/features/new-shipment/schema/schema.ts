@@ -38,7 +38,7 @@ const requiresCustoms = (country: string): boolean => {
 const shipmentFieldSchemas = {
   name: v.message(
     v.pipe(v.string(), v.trim(), v.minLength(1), v.maxLength(100)),
-    "Enter the recipient's name (up to 100 characters)",
+    "Enter the recipient's name (max. 100 characters)",
   ),
   telephone_number: v.optional(
     v.message(
@@ -53,7 +53,7 @@ const shipmentFieldSchemas = {
         }),
         v.transform((value) => value.replace(/[\s\-()]/g, '')),
       ),
-      'Enter a phone number with 7 to 15 digits',
+      'Enter a valid phone number',
     ),
   ),
   country: v.message(
@@ -67,7 +67,7 @@ const shipmentFieldSchemas = {
   ),
   city: v.message(
     v.pipe(v.string(), v.trim(), v.minLength(1), v.maxLength(100)),
-    'Enter a city (up to 100 characters)',
+    'Enter a city (max. 100 characters)',
   ),
   tax_number: v.optional(
     v.message(
@@ -77,7 +77,7 @@ const shipmentFieldSchemas = {
         v.check((value) => /^[A-Za-z0-9-]{5,20}$/.test(value.replace(/\s/g, ''))),
         v.transform((value) => value.replace(/\s/g, '').toUpperCase()),
       ),
-      'Enter a tax number using 5 to 20 letters, digits or hyphens',
+      'Enter a valid tax number (5-20 letters, digits or hyphens)',
     ),
   ),
   export_reason: v.optional(
@@ -94,7 +94,7 @@ const shipmentFieldSchemas = {
   statements: v.optional(
     v.message(
       v.pipe(v.string(), v.trim(), v.maxLength(500)),
-      'Keep statements to 500 characters or fewer',
+      'Statements exceed the maximum length of 500 characters',
     ),
   ),
   // The options within this field are dynamically populated.
@@ -119,7 +119,7 @@ export const createShipmentSchema = v.pipe(
     v.partialCheck(
       [['country'], ['tax_number']],
       ({ country, tax_number }) => !requiresCustoms(country) || typeof tax_number === 'string',
-      'Enter a tax number using 5 to 20 letters, digits or hyphens',
+      'Enter a valid tax number (5-20 letters, digits or hyphens)',
     ),
     ['tax_number'],
   ),

@@ -50,6 +50,9 @@
   --sc-color-danger-bg: #f8e6e6;
   --sc-color-danger-border: #e19999;
 
+  /* Box shadow */
+  --sc-elevation-l: rgba(17, 40, 87, 0.08) 0px 6px 30px 0px;
+
   /* Shared form-control look (inputs, selects, textareas, radio cards, radio circle) */
   --sc-control-border: 1px solid var(--sc-color-primary);
   --sc-control-radius: var(--sc-border-radius-l);

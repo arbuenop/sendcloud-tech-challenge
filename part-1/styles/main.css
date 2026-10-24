@@ -5,3 +5,4 @@
 @import './base.css' layer(base);
 @import './layout.css' layer(layout);
 @import './components/index.css' layer(components);
+@import './media-queries.css';

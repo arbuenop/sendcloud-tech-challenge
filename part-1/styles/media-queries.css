@@ -1,0 +1,51 @@
+/* 640px */
+@media (min-width: 40rem) {
+  body {
+    display: block;
+  }
+  main {
+    background: none;
+    width: 100%;
+    /* TBD: Would be better fixed or dynamic width? */
+    /* width: 40rem; */
+    margin: auto;
+  }
+
+  .form {
+    box-shadow: var(--sc-elevation-l);
+    border-radius: var(--sc-border-radius-l);
+    padding: 1.25rem;
+    border: 1px solid var(--sc-color-light-grey);
+  }
+  .fieldset__row {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .fieldset__radiocardwrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  /* whatever the first child is (the label), make it span the full row */
+  .fieldset__radiocardwrapper > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .form__submit {
+    width: auto;
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* 1024px */
+@media (min-width: 64rem) {
+  main {
+    width: 60rem;
+  }
+}
+/* 1280px */
+@media (min-width: 80rem) {
+}

@@ -42,27 +42,79 @@
   line-height: 1.5;
 }
 
+.field__textarea {
+  resize: none;
+  height: 10rem;
+}
+
+/* ---------- Select ---------- */
+
+.field__select-wrap {
+  position: relative;
+  width: 100%;
+}
+
 .field__select {
-  /* Remove the native arrow so we control its position */
+  display: block;
+  width: 100%;
   -webkit-appearance: none;
   appearance: none;
 
   /* Same height as the text inputs: line-height + vertical padding + borders */
   height: calc(1.5rem + 1rem + 2px);
 
-  /* Custom arrow, offset 0.75rem from the right edge */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23102050' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 0.75rem auto;
-
   /* Keep long option text from running under the arrow */
   padding-right: calc(0.75rem + 0.75rem + 0.5rem);
+  cursor: pointer;
+}
+
+/* Chevron: drawn with a mask, so axe doesn't see a background image.
+   Centered on the select's own height (half of 1.5rem + 1rem + 2px),
+   so it doesn't depend on the wrapper's height. */
+.field__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  top: calc(1.25rem + 1px);
+  width: 0.75rem;
+  height: 0.5rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-color: var(--sc-color-primary);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+/* Select error state: more padding on the select, icon on the wrapper's ::before */
+.field__select[aria-invalid='true'] {
+  padding-right: 3.5rem;
+}
+
+.field__select-wrap:has(.field__select[aria-invalid='true'])::before {
+  content: '';
+  position: absolute;
+  right: 2.25rem;
+  top: calc(1.25rem + 1px);
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: var(--sc-icon-error) center / contain no-repeat;
+}
+
+/* ---------- Text input / textarea ---------- */
+
+.field__textinput,
+.field__textarea {
+  cursor: text;
 }
 
 .field__textarea[aria-invalid='true'],
 .field__textinput[aria-invalid='true'] {
-  background-image: var(--field-error-icon);
+  background-image: var(--sc-icon-error);
+  background-color: var(--sc-color-card-bg);
   background-repeat: no-repeat;
   background-size: auto 1.25rem;
   padding-right: 2.25rem;
@@ -76,27 +128,11 @@
   background-position: right 1rem top 0.75rem;
 }
 
-/* Select: error icon sits to the left of the dropdown arrow */
-.field__select[aria-invalid='true'] {
-  background-image:
-    /* First the error icon */
-    var(--field-error-icon),
-    /* Second the chevron down */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23102050' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat, no-repeat;
-  background-position:
-    right 2.25rem center,
-    right 0.75rem center;
-  background-size:
-    auto 1.25rem,
-    0.75rem auto;
-  padding-right: 3.5rem;
-}
+/* ---------- States ---------- */
 
 .field__select:hover,
 .field__textinput:hover,
 .field__textarea:hover {
-  cursor: pointer;
   border-color: var(--sc-color-border-hover);
 }
 

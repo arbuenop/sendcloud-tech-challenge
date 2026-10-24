@@ -59,10 +59,12 @@
           <div class="fieldset__row">
             <div class="field">
               <label class="field__label" for="country">Country</label>
-              <select class="field__select" id="country" name="country" autocomplete="country">
-                <!-- Options will be populated by JavaScript -->
-                <option value="">Loading list of countries...</option>
-              </select>
+              <div class="field__select-wrap">
+                <select class="field__select" id="country" name="country" autocomplete="country">
+                  <!-- Options will be populated by JavaScript -->
+                  <option value="">Loading list of countries...</option>
+                </select>
+              </div>
             </div>
 
             <div class="field">
@@ -89,16 +91,23 @@
 
             <div class="field">
               <label class="field__label" for="export_reason">Export reason</label>
-              <select class="field__select" id="export_reason" name="export_reason">
-                <!-- Options will be populated by JavaScript -->
-                <option value="">Loading results...</option>
-              </select>
+              <div class="field__select-wrap">
+                <select class="field__select" id="export_reason" name="export_reason">
+                  <!-- Options will be populated by JavaScript -->
+                  <option value="">Loading results...</option>
+                </select>
+              </div>
             </div>
           </div>
 
           <div class="field">
             <label class="field__label" for="statements">Statements and declarations</label>
-            <textarea id="statements" class="field__textarea" name="statements"></textarea>
+            <textarea
+              id="statements"
+              class="field__textarea"
+              name="statements"
+              placeholder="Write here any additional information customs should know about this shipment..."
+            ></textarea>
           </div>
         </fieldset>
 
