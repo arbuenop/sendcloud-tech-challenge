@@ -22,7 +22,7 @@ export function validateField(schema: v.GenericSchema, value: unknown): string[]
  * @param value - raw value
  * @returns the formatted value
  */
-export function cleanOptional(value: string): string | undefined {
-  const trimmed = value.trim();
-  return trimmed === '' ? undefined : trimmed;
+export function cleanOptional(value?: string): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
 }

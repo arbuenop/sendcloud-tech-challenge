@@ -18,9 +18,9 @@ const FIELD_NAMES: readonly string[] = [
   'shipping_preference',
 ];
 
-function cleanOptional(value: string): string | undefined {
-  const trimmed = value.trim();
-  return trimmed === '' ? undefined : trimmed;
+function cleanOptional(value?: string): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
 }
 
 /**
