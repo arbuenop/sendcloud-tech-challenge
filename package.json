@@ -13,7 +13,7 @@
     "preview": "concurrently \"npm:mock-backend\" \"vite preview\"",
     "test": "vitest",
     "test-ui": "npx playwright test --ui",
-    "generate-ui-tests": "concurrently -k \"npm start\" \"wait-on http://localhost:5173/part-1/new-shipment.html && playwright codegen http://localhost:5173/part-1/new-shipment.html\"",
+    "generate-ui-tests": "concurrently -k \"npm start\" \"node scripts/wait-for-url.js http://localhost:5173/part-1/new-shipment.html && playwright codegen http://localhost:5173/part-1/new-shipment.html\"",
     "typecheck": "tsc --noEmit",
     "mock-backend": "mockoon-cli start --faker-locale nl --data api/shipment-api-mockoon.json",
     "api-docs": "redocly preview --project-dir=./api --product=redoc",
@@ -36,10 +36,11 @@
     "happy-dom": "21.0.4",
     "jsdom": "29.1.1",
     "prettier": "^3.9.10",
-    "typescript": "7.0.2",
+    "rollup-plugin-visualizer": "^6.0.11",
+    "typedoc": "^0.28.20",
+    "typescript": "5.9",
     "vite": "8.3.5",
-    "vitest": "4.1.12",
-    "wait-on": "^9.5.1"
+    "vitest": "4.1.12"
   },
   "overrides": {
     "@faker-js/faker": "10.6.0",
