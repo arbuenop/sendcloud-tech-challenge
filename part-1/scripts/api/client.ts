@@ -45,10 +45,10 @@ async function request(
 }
 
 /**
- * Since this use case only requires the most basic operations i've decided
- * to implmement a simple API client with only GET and POST methods.
+ * Since this use case only requires the most basic operations, this client
+ * implements simple GET and POST methods.
  *
- * This can be extended or replaced in the future if needed. For example for axios or other libraries that provide more features like interceptors, retries, etc.
+ * This can be extended with features such as interceptors and retries if needed.
  */
 export const api: API = {
   async get(path: string): Promise<Response> {
