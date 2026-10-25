@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles/main.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create new shipment - Sendcloud</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="heading heading--1">Create new shipment</h1>
+
+      <p
+        id="form-success"
+        class="alert alert--success"
+        role="status"
+        tabindex="-1"
+        hidden
+        aria-live="polite"
+      ></p>
+      <div
+        id="form-error"
+        class="alert alert--error"
+        role="alert"
+        tabindex="-1"
+        hidden
+        aria-live="assertive"
+      >
+      </div>
+      <form class="form" id="shipment-form" novalidate>
+        <fieldset class="fieldset" id="recipient">
+          <legend class="fieldset__legend">Recipient</legend>
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="field__textinput"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="telephone_number">
+                Phone number <span class="field__optionalmarker">(Optional)</span>
+              </label>
+              <input
+                id="telephone_number"
+                name="telephone_number"
+                class="field__textinput"
+                type="tel"
+                autocomplete="tel"
+              />
+              <small class="field__hint">Only used if there are issues with the shipment</small>
+            </div>
+          </div>
+
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="country">Country</label>
+              <div class="field__select-wrap">
+                <select
+                  class="field__select"
+                  id="country"
+                  name="country"
+                  autocomplete="country"
+                  required
+                >
+                  <option value="">Select a country</option>
+                  <option value="NL">The Netherlands</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                  <option value="PT">Portugal</option>
+                  <option value="ES">Spain</option>
+                  <option value="IT">Italy</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US">United States of America</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="city">City</label>
+              <input
+                id="city"
+                name="city"
+                type="text"
+                class="field__textinput"
+                autocomplete="address-level2"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset" id="customs-fields" hidden>
+          <legend class="fieldset__legend">Customs information</legend>
+
+          <div class="fieldset__row">
+            <div class="field">
+              <label class="field__label" for="tax_number">
+                Tax number <span class="field__optionalmarker" data-tax-optional>(Optional)</span>
+              </label>
+              <input id="tax_number" name="tax_number" class="field__textinput" type="text" />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="export_reason">Export reason</label>
+              <div class="field__select-wrap">
+                <select class="field__select" id="export_reason" name="export_reason">
+                  <option value="">Select an export reason</option>
+                  <option value="commercial_goods">Commercial goods</option>
+                  <option value="gift">Gift</option>
+                  <option value="documents">Documents</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="statements">
+              Statements and declarations <span class="field__optionalmarker">(Optional)</span>
+            </label>
+            <textarea
+              id="statements"
+              class="field__textarea"
+              name="statements"
+              placeholder="Write here any additional information customs should know about this shipment..."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset" id="shipping-preference-fieldset">
+          <legend class="fieldset__legend">Shipping preference</legend>
+          <!-- Options will be populated by JavaScript -->
+          <div class="field__checkbox checkbox">
+            <input id="insured" name="insured" type="checkbox" />
+            <div class="field__checkboxlabel checkboxlabel">
+              <label class="field__label" for="insured">I'd like my shipment to be insured</label>
+              <small class="field__hint">
+                Only applies to shipments up to a maximum value of €4000.
+                <a
+                  class="link"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Terms and Conditions, opens in new tab"
+                  href="https://www.xcover.com/en/pds/sendcloud-shipment-protection-eu"
+                  >Terms and conditions</a
+                >
+                apply.
+              </small>
+            </div>
+          </div>
+        </fieldset>
+
+        <button class="button form__submit" type="submit">Create shipment</button>
+      </form>
+    </main>
+
+    <script type="module" src="./scripts/index.ts"></script>
+  </body>
+</html>

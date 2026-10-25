@@ -1,0 +1,51 @@
+.bootup-loading-logo__message {
+  color: var(--sc-color-primary);
+}
+
+.bootup-loading-logo__bg {
+  fill: none;
+  stroke: #e7e7e7;
+  stroke-width: 9;
+}
+
+.shipping-methods-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.shipping-methods-loading .bootup-loading-logo {
+  display: block;
+  width: 6rem;
+  height: auto;
+}
+
+.bootup-loading-logo__fg {
+  fill: none;
+  stroke: #c3c5c7;
+  stroke-width: 9;
+  stroke-dasharray: 100;
+  stroke-dashoffset: -100;
+  animation: bootup-draw 5s linear infinite;
+}
+
+@keyframes bootup-draw {
+  0% {
+    stroke-dashoffset: -100;
+  } /* nothing drawn */
+  50% {
+    stroke-dashoffset: 0;
+  } /* fully drawn */
+  100% {
+    stroke-dashoffset: 100;
+  } /* erased */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bootup-loading-logo__fg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

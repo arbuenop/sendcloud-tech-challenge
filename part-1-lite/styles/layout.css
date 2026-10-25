@@ -1,0 +1,35 @@
+main {
+  flex: 1;
+  width: 100%;
+  padding: var(--sc-space-6) var(--sc-space-4);
+  background: var(--sc-color-main-bg);
+}
+
+.form {
+  background: var(--sc-color-card-bg);
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0 0 var(--sc-space-6);
+  padding: 0;
+  border: none;
+}
+
+.fieldset__legend {
+  margin-bottom: var(--sc-space-8);
+  padding: 0;
+  color: var(--sc-color-primary);
+  font-family: var(--sc-font-family-heading);
+  font-size: var(--sc-heading-m);
+  font-weight: 700;
+}
+
+.fieldset__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__submit {
+  width: 100%;
+}

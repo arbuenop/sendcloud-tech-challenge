@@ -1,0 +1,197 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>sendcloud-frontend-test</title><meta name="description" content="Documentation for sendcloud-frontend-test"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container"><a href="index.html" class="title">sendcloud-frontend-test</a>
+<div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/>
+<ul role="listbox" id="tsd-search-results"></ul>
+<div id="tsd-search-status" aria-live="polite" aria-atomic="true">
+<div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<h1>sendcloud-frontend-test</h1></div>
+<div class="tsd-panel tsd-typography"><h1 id="sendcloud-frontend-test" class="tsd-anchor-link">Sendcloud frontend test<a href="#sendcloud-frontend-test" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<h2 id="note-about-ai-tools" class="tsd-anchor-link">Note about AI tools<a href="#note-about-ai-tools" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>We are looking for thoughtful engineers who understand the pros and cons of AI, not prompt engineers.</p>
+<p>Using AI to enhance your workflow is fine; using AI to generate the test solution is not.</p>
+<h2 id="installing-and-running-the-test-code" class="tsd-anchor-link">Installing and running the test code<a href="#installing-and-running-the-test-code" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This project contains a basic development setup using <code>vite</code> and <code>vitest</code>. Feel free to add to it or adapt it as needed.</p>
+<p>We have also included a mock backend, using <a href="https://mockoon.com/">Mockoon</a>.</p>
+<h3 id="requirements" class="tsd-anchor-link">Requirements<a href="#requirements" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="https://nodejs.org/">Node.js</a> (v22 or above)</li>
+<li><code>npm</code> (v10 or above; comes with Node.js by default)</li>
+</ul>
+<p>You will also need a (free) <a href="https://figma.com">Figma</a> account to view the design.</p>
+<p>If you have any issues with running the project, please contact us as soon as possible.</p>
+<h3 id="commands" class="tsd-anchor-link">Commands<a href="#commands" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>To install, run <code>npm install</code>.</p>
+<p>To run a local development environment, run <code>npm start</code>. This will concurrently run the frontend and the mock backend. Visit <a href="http://localhost:5174">http://localhost:5174</a> to get to a placeholder root page that will take you to the different parts of the test.</p>
+<p>You can also run the frontend and backend commands separately, with <code>npm run dev</code> and <code>npm run mock-backend</code>.</p>
+<p>To build a version for production, run <code>npm run build</code>.</p>
+<p>To serve the production build locally, run <code>npm run preview</code>.</p>
+<p>To run tests, run <code>npm t</code> or <code>npm run test</code></p>
+<p>To read the API docs, run <code>npm run api-docs</code>. They will be available at <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+<h3 id="pages" class="tsd-anchor-link">Pages<a href="#pages" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><a href="http://localhost:5174">http://localhost:5174</a>: root page for navigation - not part of the test</li>
+<li><a href="http://localhost:5174/part-1/new-shipment.html">http://localhost:5174/part-1/new-shipment.html</a>: Placeholder for a &quot;New shipment&quot; page - modify and extend this for part 1</li>
+<li><a href="http://localhost:5174/part-2/shipments.html">http://localhost:5174/part-2/shipments.html</a>: Shipments page - use this in your code review for part 2</li>
+</ul>
+<h3 id="the-backend-mock-server" class="tsd-anchor-link">The backend mock server<a href="#the-backend-mock-server" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>There is a mock backend, which uses <a href="https://mockoon.com/">Mockoon</a>. There is an OpenAPI specification for the available endpoints in the <code>/api</code> folder, along with Mockoon data files which we use to run the mock server. (Please don't modify anything in this folder.)</p>
+<p>You can view the OpenAPI specification docs in your browser by running <code>npm run api-docs</code>.</p>
+<p>The mock backend includes the following endpoints:</p>
+<ul>
+<li><a href="http://localhost:3000/shipments">http://localhost:3000/shipments</a>
+<ul>
+<li><code>POST</code>: create a new shipment. Has a 2 second delay. The endpoint will randomly respond with a <code>400</code> error.</li>
+<li><code>GET</code>: list shipments. Has a 2 second delay.</li>
+</ul>
+</li>
+<li><a href="http://localhost:3000/shipping-methods">http://localhost:3000/shipping-methods</a>
+<ul>
+<li><code>GET</code>: list shipping methods. Has a 1 second delay.</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-complete-the-test" class="tsd-anchor-link">How to complete the test<a href="#how-to-complete-the-test" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>There are two parts to this test, <strong>coding</strong> (part 1) and <strong>reviewing</strong> (part 2). These are short exercises to see how you approach frontend development.</p>
+<h3 id="part-1-coding" class="tsd-anchor-link">Part 1 - coding<a href="#part-1-coding" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Using <a href="https://www.figma.com/design/6MlvYL85pUHzam1S4is7Ng/Sendcloud-frontend-take-home-test?node-id=0-1&amp;t=KUo1SiV4S6Y1NsRQ-1">this Figma design</a>, build a form to create a new shipment. The password for the Figma design is <code>nacre-table-spout-prune</code>.</p>
+<p>We have provided a mock backend to which you can <code>POST</code> the data, and an accompanying OpenAPI specification so you know how to send the data.</p>
+<p>Note that the design we've provided is not perfect. You can either improve any issues you find, or document them.</p>
+<p>Ensure that you structure your work into multiple commits, so we can see the way you work.</p>
+<p>Please work in the <code>/part-1</code> folder for this part of the test.</p>
+<h4 id="context-for-part-1" class="tsd-anchor-link">Context for part 1<a href="#context-for-part-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Please work under the following assumptions:</p>
+<ul>
+<li>Consider modern browsers only (latest 2 versions of Chrome, Firefox, and Safari)</li>
+<li>The project must be as performant and accessible (think <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG</a>) as possible.</li>
+<li>The target audience will be using 3G connections and slower devices to view this page.</li>
+<li>If in doubt, try to keep your solution simple.</li>
+<li>Consider happy and unhappy user paths</li>
+<li>The solution should be production-ready - whatever that means to you</li>
+<li>We prefer a polished, but unfinished solution over a rushed, but complete one.
+<ul>
+<li>Feel free to document what you would have added with more time, and submit the document with your solution.</li>
+<li>If you think of possible improvements that you think are out of scope but might be interesting, feel free to document those too.</li>
+</ul>
+</li>
+</ul>
+<h4 id="requirements-for-part-1" class="tsd-anchor-link">Requirements for part 1<a href="#requirements-for-part-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<h5 id="requirements-for-the-form" class="tsd-anchor-link">Requirements for the form<a href="#requirements-for-the-form" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<ul>
+<li>The form should <code>POST</code> its data to <code>http://localhost:3000/shipments</code> with the <code>Content-Type</code> of <code>application/json</code> (see the OpenAPI spec in the <code>/api</code> folder for information on what this endpoint accepts).</li>
+<li>On successfully sending the data, the form should be cleared and a success message shown (design not provided).</li>
+<li>The Country field should display this list of countries:
+<ul>
+<li>The Netherlands</li>
+<li>France</li>
+<li>Germany</li>
+<li>Portugal</li>
+<li>Spain</li>
+<li>Italy</li>
+<li>United Kingdom</li>
+<li>United States of America</li>
+</ul>
+</li>
+<li>The Export reason should display this list of export reasons:
+<ul>
+<li>Commercial goods</li>
+<li>Gift</li>
+<li>Documents</li>
+</ul>
+</li>
+<li>The Customs information section of the design should only be shown if the selected country is one of the following:
+<ul>
+<li>United Kingdom</li>
+<li>United States of America</li>
+</ul>
+</li>
+</ul>
+<h5 id="requirements-for-how-you-work" class="tsd-anchor-link">Requirements for how you work<a href="#requirements-for-how-you-work" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<ul>
+<li>Implement the design for the form in <code>part-1/new-shipment.html</code>. Please make it fully responsive (360px is the minimum viewport width you need to support)</li>
+<li>Document or resolve any issues in the design.</li>
+<li>If you make design decisions yourself, keep usability best practices in mind.</li>
+<li>Use whatever technologies or tools you feel are necessary.
+<ul>
+<li>Note: We expect that this part of the test is completed in vanilla Javascript or Typescript, without using frameworks (i.e. React, Vue, Angular, etc). If you strongly feel you should use one, you can - but be prepared to make the case for it in your technical interview.</li>
+</ul>
+</li>
+</ul>
+<h3 id="part-2-reviewing" class="tsd-anchor-link">Part 2 - reviewing<a href="#part-2-reviewing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>In the <code>/part-2</code> folder, you will find an implementation of a Shipments page. It consumes data from the mock backend server (from <a href="http://localhost:3000/shipments">http://localhost:3000/shipments</a> and <a href="http://localhost:3000/shipping-methods">http://localhost:3000/shipping-methods</a> - see the OpenAPI specs in the <code>/api</code> folder for more information) and renders a list of shipments. There is also a test file (<code>shipments.test.js</code>).</p>
+<p>There are several things that are wrong or could be improved in this code. We would like you to write a code review highlighting these issues.</p>
+<h4 id="context-for-part-2" class="tsd-anchor-link">Context for part 2<a href="#context-for-part-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Please review the code in the <code>/part-2</code> folder using the following context:</p>
+<ul>
+<li>Consider modern browsers only (latest 2 versions of Chrome, Firefox, and Safari).</li>
+<li>The code should be as performant and accessible (think <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG</a>) as possible.</li>
+<li>The target audience will be using 3G connections and slower devices to view this page.</li>
+<li>Assume the final design is coming later and that this is an interim step.</li>
+</ul>
+<h4 id="requirements-for-part-2" class="tsd-anchor-link">Requirements for part 2<a href="#requirements-for-part-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li>In <code>part-2/code-review.md</code>, please <strong>write a review</strong> of the code, as if you were reviewing a pull request for a junior colleague in your company.</li>
+<li>Explain what is wrong with the code, and how it could be improved.</li>
+<li>Explain why the last skipped test in <code>shipments.test.js</code> is not working.</li>
+<li>Your recommendations for the code should result in it being production-ready - whatever that means to you.</li>
+</ul>
+<h2 id="how-to-submit-your-test" class="tsd-anchor-link">How to submit your test<a href="#how-to-submit-your-test" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Either:</p>
+<ul>
+<li>Package the project as a <code>.zip</code> file</li>
+<li>Keep your <code>.git</code> folder in the file.</li>
+<li>Upload the packaged test to Google Drive/Dropbox and include a link in the message of your submission.</li>
+</ul>
+<p>Or:</p>
+<p>Share a link to a public GitHub or GitLab repository with the results of your test.</p>
+</div></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div>
+<div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg>
+<h3>On This Page</h3></summary>
+<div class="tsd-accordion-details"><a href="#sendcloud-frontend-test"><span>Sendcloud frontend test</span></a>
+<ul>
+<li><a href="#note-about-ai-tools"><span>Note about <wbr/>AI tools</span></a></li>
+<li><a href="#installing-and-running-the-test-code"><span>Installing and running the test code</span></a></li>
+<li>
+<ul>
+<li><a href="#requirements"><span>Requirements</span></a></li>
+<li><a href="#commands"><span>Commands</span></a></li>
+<li><a href="#pages"><span>Pages</span></a></li>
+<li><a href="#the-backend-mock-server"><span>The backend mock server</span></a></li></ul></li>
+<li><a href="#how-to-complete-the-test"><span>How to complete the test</span></a></li>
+<li>
+<ul>
+<li><a href="#part-1-coding"><span>Part 1 -<wbr/> coding</span></a></li>
+<li>
+<ul>
+<li><a href="#context-for-part-1"><span>Context for part 1</span></a></li>
+<li><a href="#requirements-for-part-1"><span>Requirements for part 1</span></a></li>
+<li>
+<ul>
+<li><a href="#requirements-for-the-form"><span>Requirements for the form</span></a></li>
+<li><a href="#requirements-for-how-you-work"><span>Requirements for how you work</span></a></li></ul></li></ul></li>
+<li><a href="#part-2-reviewing"><span>Part 2 -<wbr/> reviewing</span></a></li>
+<li>
+<ul>
+<li><a href="#context-for-part-2"><span>Context for part 2</span></a></li>
+<li><a href="#requirements-for-part-2"><span>Requirements for part 2</span></a></li></ul></li></ul></li>
+<li><a href="#how-to-submit-your-test"><span>How to submit your test</span></a></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="modules.html">sendcloud-frontend-test</a>
+<ul class="tsd-small-nested-navigation" id="tsd-nav-container">
+<li>Loading...</li></ul></nav></div></div></div><footer>
+<p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer>
+<div class="overlay"></div></body></html>

@@ -1,0 +1,155 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.field__label {
+  color: var(--sc-color-primary);
+  /* color: var(--sc-color-dark-grey); */
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.field__optionalmarker,
+.field__hint {
+  color: var(--sc-color-mid-grey);
+  font-size: 0.875rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.field__hint {
+  margin-top: 0.5rem;
+  order: 3;
+}
+
+.field__textinput,
+.field__select,
+.field__textarea {
+  box-sizing: border-box;
+  font-family: inherit;
+  background-color: var(--sc-color-card-bg);
+  color: var(--sc-color-primary);
+  border-radius: var(--sc-border-radius-l);
+  border: 1px solid var(--sc-color-primary);
+  padding: 0.5rem 0.75rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.field__textarea {
+  resize: none;
+  height: 10rem;
+}
+
+/* ---------- Select ---------- */
+
+.field__select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.field__select {
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* Same height as the text inputs: line-height + vertical padding + borders */
+  height: calc(1.5rem + 1rem + 2px);
+
+  /* Keep long option text from running under the arrow */
+  padding-right: calc(0.75rem + 0.75rem + 0.5rem);
+  cursor: pointer;
+}
+
+/* Chevron: drawn with a mask, so axe doesn't see a background image.
+   Centered on the select's own height (half of 1.5rem + 1rem + 2px),
+   so it doesn't depend on the wrapper's height. */
+.field__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  top: calc(1.25rem + 1px);
+  width: 0.75rem;
+  height: 0.5rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-color: var(--sc-color-primary);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+/* Select error state: more padding on the select, icon on the wrapper's ::before */
+.field__select[aria-invalid='true'] {
+  padding-right: 3.5rem;
+}
+
+.field__select-wrap:has(.field__select[aria-invalid='true'])::before {
+  content: '';
+  position: absolute;
+  right: 2.25rem;
+  top: calc(1.25rem + 1px);
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: var(--sc-icon-error) center / contain no-repeat;
+}
+
+/* ---------- Text input / textarea ---------- */
+
+.field__textinput,
+.field__textarea {
+  cursor: text;
+}
+
+.field__textarea[aria-invalid='true'],
+.field__textinput[aria-invalid='true'] {
+  background-image: var(--sc-icon-error);
+  background-color: var(--sc-color-card-bg);
+  background-repeat: no-repeat;
+  background-size: auto 1.25rem;
+  padding-right: 2.25rem;
+}
+
+.field__textinput[aria-invalid='true'] {
+  background-position: right 1rem center;
+}
+
+.field__textarea[aria-invalid='true'] {
+  background-position: right 1rem top 0.75rem;
+}
+
+/* ---------- States ---------- */
+
+.field__select:hover,
+.field__textinput:hover,
+.field__textarea:hover {
+  border-color: var(--sc-color-border-hover);
+}
+
+.field__error {
+  order: 2; /* directly after the input but before the hint (default order is 0) */
+  color: var(--sc-color-danger);
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+[aria-invalid='true'] {
+  border-color: var(--sc-color-danger) !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sc-color-focus) !important;
+}
