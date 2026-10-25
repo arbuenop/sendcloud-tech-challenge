@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './part-1/e2e',
+  testDir: './part-1/scripts/e2e',
   use: { baseURL: 'http://localhost:5173' },
   webServer: [
     {

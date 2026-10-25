@@ -31,7 +31,7 @@ test.beforeEach(async ({ page }) => {
 
   // Mocking shippment methods response and loading page
   await page.route('http://localhost:3000/**', (route) =>
-    route.fulfill({ json: [{ id: 1, name: 'Fast shipping method' }] }),
+    route.fulfill({ json: [{ id: 1, name: 'Cheap shipping method' }] }),
   );
   await page.goto('/part-1/new-shipment.html');
 

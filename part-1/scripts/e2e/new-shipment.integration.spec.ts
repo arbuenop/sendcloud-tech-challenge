@@ -5,7 +5,7 @@ test.describe('Full integration test. The form behaves as expected end 2 end', (
   test.beforeEach('go to the page', async ({ page }) => {
     // Mocking shippment methods response and loading page
     await page.route('http://localhost:3000/**', (route) =>
-      route.fulfill({ json: [{ id: 1, name: 'Fast shipping method' }] }),
+      route.fulfill({ json: [{ id: 1, name: 'Cheap shipping method' }] }),
     );
     await page.goto('/part-1/new-shipment.html');
   });
