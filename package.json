@@ -13,6 +13,7 @@
     "preview": "concurrently \"npm:mock-backend\" \"vite preview\"",
     "test": "vitest",
     "test-ui": "npx playwright test --ui",
+    "test:coverage": "vitest run --coverage",
     "generate-ui-tests": "concurrently -k \"npm start\" \"node scripts/wait-for-url.js http://localhost:5173/part-1/new-shipment.html && playwright codegen http://localhost:5173/part-1/new-shipment.html\"",
     "typecheck": "tsc --noEmit",
     "mock-backend": "mockoon-cli start --faker-locale nl --data api/shipment-api-mockoon.json",
@@ -31,6 +32,7 @@
     "@mockoon/cli": "9.9.0",
     "@playwright/test": "^1.64.1",
     "@redocly/cli": "2.67.1",
+    "@vitest/coverage-v8": "^4.1.12",
     "axe-core": "4.14.0",
     "concurrently": "10.0.6",
     "happy-dom": "21.0.4",
@@ -40,7 +42,7 @@
     "typedoc": "^0.28.20",
     "typescript": "5.9",
     "vite": "8.3.5",
-    "vitest": "4.1.12"
+    "vitest": "^4.1.12"
   },
   "overrides": {
     "@faker-js/faker": "10.6.0",
