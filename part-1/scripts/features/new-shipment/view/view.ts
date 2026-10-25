@@ -196,7 +196,7 @@ export function createNewShipmentView() {
     },
     setSubmitting(submitting: boolean): void {
       submitButton.setAttribute('aria-disabled', String(submitting));
-      submitButton.textContent = submitting ? 'Submitting…' : 'Submit';
+      submitButton.textContent = submitting ? 'Submitting…' : 'Create shipment';
     },
     showSuccess(message: string): void {
       clearStatus();
